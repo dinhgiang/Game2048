@@ -16,30 +16,35 @@
 #include "init.hpp"
 #include "object.hpp"
 #include "display.hpp"
-
+#include "logic.hpp"
 using namespace std;
 
-void createRandNum(int array[4][4]); // create a random number in array
-int gameNotOver(int array[4][4]);
-bool checkFullArrray(int array[4][4]);
-int randomNumber();
-int checkWinGame(int array[4][4]);
-
-int main(int argc, const char * argv[]) {
-    srand((unsigned int) time(NULL));
+bool tryAgain(SDL_Renderer* &renderer, TTF_Font* &fontContinue, SDL_Event& event, SDL_Window* &window, SDL_Texture* &screenTexture) {
+    displayContinue(renderer, fontContinue);
+    SDL_RenderPresent(renderer);
     
-    SDL_Window *window = nullptr;
-    SDL_Renderer *renderer = nullptr;
-    SDL_Texture *screenTexture = nullptr;
-    numTexture numbersTexture;
-    SDL_Event event;
-    TTF_Font *font = nullptr;
+    do { 
+        SDL_Delay(10);
+        if (SDL_WaitEvent(&event) == 0) { continue; }
+        switch (event.key.keysym.sym) {
+            case SDLK_y :
+                return true;
+            case SDLK_n:
+            case SDL_QUIT:
+                quitSDL(window, renderer, screenTexture);
+                break;
+            default:
+                break;
+        }
+    } while (event.key.keysym.sym != SDLK_y && event.key.keysym.sym != SDLK_n && event.type != SDL_QUIT);
+    
+    return false;
+}
+bool playAGame(SDL_Window* &window, SDL_Renderer* &renderer, numTexture &numbersTexture, SDL_Event &event, SDL_Texture* &screenTexture, TTF_Font* &fontScore) {
     string strScore;
     int score = 0;
     int array[4][4];
     int countEdit = 0;
-
-    initSDL(window, renderer, font, numbersTexture);
     
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 4; j++) {
@@ -49,7 +54,7 @@ int main(int argc, const char * argv[]) {
     
     createRandNum(array);
     createRandNum(array);
-    
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     renderArray(array, window, numbersTexture, screenTexture, renderer);
     SDL_RenderPresent(renderer);
     
@@ -58,7 +63,7 @@ int main(int argc, const char * argv[]) {
         if ( SDL_WaitEvent(&event) == 0) continue;
         if (event.type == SDL_QUIT) {
             quitSDL(window, renderer, screenTexture);
-            return 0;
+            return true;
         }
         if (event.type == SDL_KEYDOWN) {
             switch (event.key.keysym.sym) {
@@ -75,14 +80,14 @@ int main(int argc, const char * argv[]) {
                     updateRight(array, countEdit, score);
                     break;
                 default:
-                    break;
+                    continue;
             }
             if (countEdit < 4) {
                 createRandNum(array);
             }
         }
         renderArray(array, window, numbersTexture, screenTexture, renderer);
-        displayScore(renderer, font, strScore, score);
+        displayScore(renderer, fontScore, strScore, score);
         renderWinGame(array, numbersTexture, screenTexture, window, renderer);
         SDL_RenderPresent(renderer);
     }
@@ -90,52 +95,29 @@ int main(int argc, const char * argv[]) {
     renderLoseGame(array, numbersTexture, screenTexture, window, renderer);
     SDL_RenderPresent(renderer);
     SDL_Delay(1000);
-    waitUntilKeyPressed();
+    
+    return false;
+}
+
+int main(int argc, const char * argv[]) {
+    srand((unsigned int) time(NULL));
+    
+    SDL_Window *window = nullptr;
+    SDL_Renderer *renderer = nullptr;
+    SDL_Texture *screenTexture = nullptr;
+    numTexture numbersTexture;
+    SDL_Event event;
+    TTF_Font *fontScore = nullptr;
+    TTF_Font *fontContinue = nullptr;
+    
+    initSDL(window, renderer, fontScore, fontContinue, numbersTexture);
+    
+    
+    do {
+        if ( playAGame(window, renderer, numbersTexture, event, screenTexture, fontScore) ) break;
+    } while ( tryAgain(renderer, fontContinue, event, window, screenTexture) );
     
     quitSDL(window, renderer, screenTexture);
     return 0;
 }
 
-void createRandNum(int array[4][4]) {
-    int i, j;
-    if (checkFullArrray(array) == false) {
-        do {
-            i = rand() % 4;
-            j = rand() % 4;
-        } while (array[i][j] != 0);
-        array[i][j] = randomNumber();
-    }
-}
-
-int gameNotOver(int array[4][4]) {
-    int i, j;
-    for (i = 0; i < 4; i++) {
-        for (j = 0; j < 4; j++) {
-            if (array[i][j] == 0) {
-                return 1;
-            }
-            if ((array[i][j] == array[i+1][j] && i < 3) || (array[i][j] == array[i][j+1] && j < 3)) {
-                return 1;
-            }
-        }
-    }
-    return 0;
-}
-
-bool checkFullArrray(int array[4][4]) {
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            if (array[i][j] == 0) {
-                return false;
-            }
-        }
-    }
-    return true;
-}
-
-int randomNumber() {
-    if ((rand() % 100) > 40) {
-        return 2;
-    }
-    return 4;
-}

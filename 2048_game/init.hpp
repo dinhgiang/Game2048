@@ -17,12 +17,10 @@
 
 using namespace std;
 
-void initSDL(SDL_Window* &window, SDL_Renderer* &renderer, TTF_Font* &font, numTexture &numbersTexture);
+void initSDL(SDL_Window* &window, SDL_Renderer* &renderer, TTF_Font* &fontScore, TTF_Font* &fontContinue, numTexture &numbersTexture);
 void logSDLError(ostream& os, const string& msg, bool fatal = false);
 void quitSDL(SDL_Window* &window, SDL_Renderer* &renderer, SDL_Texture* &screenTexture);
-void waitUntilKeyPressed();
 bool loadMedia(numTexture& numbersTexture, SDL_Renderer* &renderer);
 SDL_Texture* loadTexture(string filePath, SDL_Renderer* &renderer);
-
 
 #endif /* init_hpp */

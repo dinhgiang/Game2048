@@ -22,5 +22,5 @@ void displayScore(SDL_Renderer* &renderer, TTF_Font* &font, string strScore, int
 void renderWinGame(int array[4][4], const numTexture& numbersTexture, SDL_Texture* screenTexture,  SDL_Window* window, SDL_Renderer* &renderer);
 void renderLoseGame(int array[4][4], const numTexture& numbersTexture, SDL_Texture* screenTexture,  SDL_Window* window, SDL_Renderer* &renderer);
 void renderArray(int array[4][4], SDL_Window* window, const numTexture& numbersTexture, SDL_Texture* screenTexture, SDL_Renderer* &renderer);
-
+void displayContinue(SDL_Renderer* &renderer, TTF_Font* &fontContinue);
 #endif /* display_hpp */

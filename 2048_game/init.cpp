@@ -16,7 +16,7 @@ void logSDLError(ostream& os, const string& msg, bool fatal) {
     }
 }
 
-void initSDL(SDL_Window* &window, SDL_Renderer* &renderer, TTF_Font* &font, numTexture &numbersTexture) {
+void initSDL(SDL_Window* &window, SDL_Renderer* &renderer, TTF_Font* &fontScore, TTF_Font* &fontContinue, numTexture &numbersTexture) {
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
         logSDLError(cout, "SDL_Init", true);
     }
@@ -42,8 +42,13 @@ void initSDL(SDL_Window* &window, SDL_Renderer* &renderer, TTF_Font* &font, numT
         cout << "Error: " << TTF_GetError() << endl;
     } 
     
-    font = TTF_OpenFont(FONT_SCORE_PATH.c_str(), 30);
-    if (font == NULL) {
+    fontScore = TTF_OpenFont(FONT_SCORE_PATH.c_str(), FONT_SCORE_SIZE);
+    if (fontScore == NULL) {
+        cout << "Error";
+    }
+    
+    fontContinue = TTF_OpenFont(FONT_CONTINUE_PATH.c_str(), FONT_CONTINUE_SIZE);
+    if (fontContinue == NULL) {
         cout << "Error";
     }
 
@@ -61,16 +66,6 @@ void quitSDL(SDL_Window* &window, SDL_Renderer* &renderer, SDL_Texture* &screenT
     SDL_Quit();
     IMG_Quit();
     TTF_Quit();
-}
-
-void waitUntilKeyPressed() {
-    SDL_Event e;
-    while (true) {
-        if (SDL_WaitEvent(&e) != 0 && (e.type == SDL_KEYDOWN || e.type == SDL_QUIT)) {
-            return;
-        }
-        SDL_Delay(10);
-    }
 }
 
 SDL_Texture* loadTexture(string filePath, SDL_Renderer* &renderer)
@@ -104,10 +99,10 @@ bool loadMedia(numTexture& numbersTexture, SDL_Renderer* &renderer) {
     numbersTexture.num128  = loadTexture(NUM128_IMG_PATH, renderer);
     numbersTexture.num256  = loadTexture(NUM256_IMG_PATH, renderer);
     numbersTexture.num512  = loadTexture(NUM512_IMG_PATH, renderer);
-    numbersTexture.num1024 = loadTexture(NUM128_IMG_PATH, renderer);
-    numbersTexture.num2048 = loadTexture(NUM256_IMG_PATH, renderer);
+    numbersTexture.num1024 = loadTexture(NUM1024_IMG_PATH, renderer);
+    numbersTexture.num2048 = loadTexture(NUM2048_IMG_PATH, renderer);
     numbersTexture.num4096 = loadTexture(NUM4096_IMG_PATH, renderer);
-    numbersTexture.num8192 = loadTexture(NUM8_IMG_PATH, renderer);
+    numbersTexture.num8192 = loadTexture(NUM8192_IMG_PATH, renderer);
     numbersTexture.win     = loadTexture(WIN_IMG_PATH, renderer);
     numbersTexture.lose    = loadTexture(LOSE_IMG_PATH, renderer);
     

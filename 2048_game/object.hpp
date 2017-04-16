@@ -52,7 +52,11 @@ const string NUM8192_IMG_PATH = "Images/num8192.png";
 const string WIN_IMG_PATH     = "Images/win.png";
 const string LOSE_IMG_PATH    = "Images/lose.png";
 
-const string FONT_SCORE_PATH = "Fonts/TimesNewRoman.ttf";
+const string FONT_SCORE_PATH    = "Fonts/TimesNewRoman.ttf";
+const string FONT_CONTINUE_PATH = "Fonts/lazy.ttf";
+
+const int FONT_SCORE_SIZE    = 32;
+const int FONT_CONTINUE_SIZE = 50;
 
 const SDL_Color CYAN_COLOR   = {  0, 255, 255};
 const SDL_Color BLUE_COLOR   = {  0,   0, 255};

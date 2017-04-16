@@ -126,3 +126,26 @@ void renderWinGame(int array[4][4], const numTexture& numbersTexture, SDL_Textur
 void renderLoseGame(int array[4][4], const numTexture& numbersTexture, SDL_Texture* screenTexture,  SDL_Window* window, SDL_Renderer* &renderer) {
     SDL_RenderCopy(renderer, numbersTexture.lose, nullptr, nullptr);
 }
+
+void displayContinue(SDL_Renderer* &renderer, TTF_Font* &fontContinue) {
+    SDL_Surface *textSurface;
+    textSurface = TTF_RenderText_Solid(fontContinue, "Play again?(y/n)", GREEN_COLOR);
+    
+    SDL_Texture *text = SDL_CreateTextureFromSurface(renderer, textSurface);
+    
+    SDL_Rect rectContinueText;
+    SDL_QueryTexture(text, NULL, NULL, &rectContinueText.w, &rectContinueText.h);
+    rectContinueText.x = SCREEN_WIDTH / 2 - rectContinueText.w / 2;
+    rectContinueText.y = SCREEN_HEIGHT / 2 - rectContinueText.h / 2;
+    
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    
+    SDL_RenderFillRect (renderer, &rectContinueText);
+    
+    SDL_RenderCopy(renderer, text, NULL, &rectContinueText);
+    
+    SDL_FreeSurface(textSurface);
+    SDL_DestroyTexture(text);
+    textSurface = nullptr;
+    text = nullptr;
+}

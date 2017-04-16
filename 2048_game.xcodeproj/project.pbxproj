@@ -11,6 +11,7 @@
 		221C1FCA1E9F9615001973D2 /* display.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 221C1FC41E9F9615001973D2 /* display.cpp */; };
 		221C1FCB1E9F9615001973D2 /* init.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 221C1FC51E9F9615001973D2 /* init.cpp */; };
 		221C1FCC1E9F9615001973D2 /* updateArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 221C1FC81E9F9615001973D2 /* updateArray.cpp */; };
+		22D9320A1EA32D9500B31A6E /* logic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D932081EA32D9500B31A6E /* logic.cpp */; };
 		22F660A31E9A5C3500AF613F /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F660A01E9A5C3500AF613F /* SDL2_image.framework */; };
 		22F660A41E9A5C3500AF613F /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F660A11E9A5C3500AF613F /* SDL2_ttf.framework */; };
 		22F660A51E9A5C3500AF613F /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F660A21E9A5C3500AF613F /* SDL2.framework */; };
@@ -38,6 +39,8 @@
 		221C1FC71E9F9615001973D2 /* display.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = display.hpp; sourceTree = "<group>"; };
 		221C1FC81E9F9615001973D2 /* updateArray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = updateArray.cpp; sourceTree = "<group>"; };
 		221C1FC91E9F9615001973D2 /* updateArray.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = updateArray.hpp; sourceTree = "<group>"; };
+		22D932081EA32D9500B31A6E /* logic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = logic.cpp; sourceTree = "<group>"; };
+		22D932091EA32D9500B31A6E /* logic.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = logic.hpp; sourceTree = "<group>"; };
 		22F660961E9A5BF800AF613F /* 2048_game */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = 2048_game; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F660A01E9A5C3500AF613F /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../../../../Library/Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
 		22F660A11E9A5C3500AF613F /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = ../../../../Library/Frameworks/SDL2_ttf.framework; sourceTree = "<group>"; };
@@ -89,6 +92,8 @@
 				221C1FC81E9F9615001973D2 /* updateArray.cpp */,
 				221C1FC91E9F9615001973D2 /* updateArray.hpp */,
 				221C1FC11E9F95FC001973D2 /* main.cpp */,
+				22D932081EA32D9500B31A6E /* logic.cpp */,
+				22D932091EA32D9500B31A6E /* logic.hpp */,
 			);
 			path = 2048_game;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				221C1FCA1E9F9615001973D2 /* display.cpp in Sources */,
+				22D9320A1EA32D9500B31A6E /* logic.cpp in Sources */,
 				221C1FC21E9F95FC001973D2 /* main.cpp in Sources */,
 				221C1FCC1E9F9615001973D2 /* updateArray.cpp in Sources */,
 				221C1FCB1E9F9615001973D2 /* init.cpp in Sources */,
