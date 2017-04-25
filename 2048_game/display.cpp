@@ -45,46 +45,46 @@ void renderArray(int array[4][4], SDL_Window* window, const numTexture& numbersT
             
             switch (array[i][j]) {
                 case 0:
-                    SDL_RenderCopy(renderer, numbersTexture.empty, nullptr, &image);
+                    SDL_RenderCopy(renderer, numbersTexture.empty, NULL, &image);
                     break;
                 case 2:
-                    SDL_RenderCopy(renderer, numbersTexture.num2, nullptr, &image);
+                    SDL_RenderCopy(renderer, numbersTexture.num2, NULL, &image);
                     break;
                 case 4:
-                    SDL_RenderCopy(renderer, numbersTexture.num4, nullptr, &image);
+                    SDL_RenderCopy(renderer, numbersTexture.num4, NULL, &image);
                     break;
                 case 8:
-                    SDL_RenderCopy(renderer, numbersTexture.num8, nullptr, &image);
+                    SDL_RenderCopy(renderer, numbersTexture.num8, NULL, &image);
                     break;
                 case 16:
-                    SDL_RenderCopy(renderer, numbersTexture.num16, nullptr, &image);
+                    SDL_RenderCopy(renderer, numbersTexture.num16, NULL, &image);
                     break;
                 case 32:
-                    SDL_RenderCopy(renderer, numbersTexture.num32, nullptr, &image);
+                    SDL_RenderCopy(renderer, numbersTexture.num32, NULL, &image);
                     break;
                 case 64:
-                    SDL_RenderCopy(renderer, numbersTexture.num64, nullptr, &image);
+                    SDL_RenderCopy(renderer, numbersTexture.num64, NULL, &image);
                     break;
                 case 128:
-                    SDL_RenderCopy(renderer, numbersTexture.num128, nullptr, &image);
+                    SDL_RenderCopy(renderer, numbersTexture.num128, NULL, &image);
                     break;
                 case 256:
-                    SDL_RenderCopy(renderer, numbersTexture.num256, nullptr, &image);
+                    SDL_RenderCopy(renderer, numbersTexture.num256, NULL, &image);
                     break;
                 case 512:
-                    SDL_RenderCopy(renderer, numbersTexture.num512, nullptr, &image);
+                    SDL_RenderCopy(renderer, numbersTexture.num512, NULL, &image);
                     break;
                 case 1024:
-                    SDL_RenderCopy(renderer, numbersTexture.num1024, nullptr, &image);
+                    SDL_RenderCopy(renderer, numbersTexture.num1024, NULL, &image);
                     break;
                 case 2048:
-                    SDL_RenderCopy(renderer, numbersTexture.num2048, nullptr, &image);
+                    SDL_RenderCopy(renderer, numbersTexture.num2048, NULL, &image);
                     break;
                 case 4096:
-                    SDL_RenderCopy(renderer, numbersTexture.num4096, nullptr, &image);
+                    SDL_RenderCopy(renderer, numbersTexture.num4096, NULL, &image);
                     break;
                 case 8192:
-                    SDL_RenderCopy(renderer, numbersTexture.num8192, nullptr, &image);
+                    SDL_RenderCopy(renderer, numbersTexture.num8192, NULL, &image);
                     break;
                 default:
                     break;
@@ -99,21 +99,21 @@ void renderWinGame(int array[4][4], const numTexture& numbersTexture, SDL_Textur
     for (i = 0; i < 4; i++) {
         for (j = 0; j < 4; j++) {
             if (array[i][j] == 2048 && k2048==1) {
-                SDL_RenderCopy(renderer, numbersTexture.win, nullptr, nullptr);
+                SDL_RenderCopy(renderer, numbersTexture.win, NULL, NULL);
                 SDL_RenderPresent(renderer);
                 SDL_Delay(3000);
                 k2048 = 0;
                 return ;
             }
             if (array[i][j] == 4096 && k4096==1) {
-                SDL_RenderCopy(renderer, numbersTexture.win, nullptr, nullptr);
+                SDL_RenderCopy(renderer, numbersTexture.win, NULL, NULL);
                 SDL_RenderPresent(renderer);
                 SDL_Delay(3000);
                 k4096 = 0;
                 return ;
             }
             if (array[i][j] == 8192 && k8192==1) {
-                SDL_RenderCopy(renderer, numbersTexture.win, nullptr, nullptr);
+                SDL_RenderCopy(renderer, numbersTexture.win, NULL, NULL);
                 SDL_RenderPresent(renderer);
                 SDL_Delay(3000);
                 k8192 = 0;
@@ -124,7 +124,7 @@ void renderWinGame(int array[4][4], const numTexture& numbersTexture, SDL_Textur
 }
 
 void renderLoseGame(int array[4][4], const numTexture& numbersTexture, SDL_Texture* screenTexture,  SDL_Window* window, SDL_Renderer* &renderer) {
-    SDL_RenderCopy(renderer, numbersTexture.lose, nullptr, nullptr);
+    SDL_RenderCopy(renderer, numbersTexture.lose, NULL, NULL);
 }
 
 void displayContinue(SDL_Renderer* &renderer, TTF_Font* &fontContinue) {
@@ -146,6 +146,7 @@ void displayContinue(SDL_Renderer* &renderer, TTF_Font* &fontContinue) {
     
     SDL_FreeSurface(textSurface);
     SDL_DestroyTexture(text);
-    textSurface = nullptr;
-    text = nullptr;
+    textSurface = NULL;
+    text = NULL;
 }
+

@@ -13,22 +13,22 @@
 using namespace std;
 
 struct numTexture {
-    SDL_Texture* empty   = nullptr;
-    SDL_Texture* num2    = nullptr;
-    SDL_Texture* num4    = nullptr;
-    SDL_Texture* num8    = nullptr;
-    SDL_Texture* num16   = nullptr;
-    SDL_Texture* num32   = nullptr;
-    SDL_Texture* num64   = nullptr;
-    SDL_Texture* num128  = nullptr;
-    SDL_Texture* num256  = nullptr;
-    SDL_Texture* num512  = nullptr;
-    SDL_Texture* num1024 = nullptr;
-    SDL_Texture* num2048 = nullptr;
-    SDL_Texture* num4096 = nullptr;
-    SDL_Texture* num8192 = nullptr;
-    SDL_Texture* win     = nullptr;
-    SDL_Texture* lose    = nullptr;
+    SDL_Texture* empty   = NULL;
+    SDL_Texture* num2    = NULL;
+    SDL_Texture* num4    = NULL;
+    SDL_Texture* num8    = NULL;
+    SDL_Texture* num16   = NULL;
+    SDL_Texture* num32   = NULL;
+    SDL_Texture* num64   = NULL;
+    SDL_Texture* num128  = NULL;
+    SDL_Texture* num256  = NULL;
+    SDL_Texture* num512  = NULL;
+    SDL_Texture* num1024 = NULL;
+    SDL_Texture* num2048 = NULL;
+    SDL_Texture* num4096 = NULL;
+    SDL_Texture* num8192 = NULL;
+    SDL_Texture* win     = NULL;
+    SDL_Texture* lose    = NULL;
 };
 
 const int SCREEN_WIDTH    = 600;

@@ -9,9 +9,9 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include "SDL2/SDL.h"
-#include "SDL2_image/SDL_image.h"
-#include "SDL2_ttf/SDL_ttf.h"
+#include "SDL.h"
+#include "SDL_image.h"
+#include "SDL_ttf.h"
 #include "updateArray.hpp"
 #include "init.hpp"
 #include "object.hpp"
@@ -19,7 +19,13 @@
 #include "logic.hpp"
 using namespace std;
 
+void createMenuGame() {
+    
+    
+}
+
 bool tryAgain(SDL_Renderer* &renderer, TTF_Font* &fontContinue, SDL_Event& event, SDL_Window* &window, SDL_Texture* &screenTexture) {
+    
     displayContinue(renderer, fontContinue);
     SDL_RenderPresent(renderer);
     
@@ -102,13 +108,13 @@ bool playAGame(SDL_Window* &window, SDL_Renderer* &renderer, numTexture &numbers
 int main(int argc, const char * argv[]) {
     srand((unsigned int) time(NULL));
     
-    SDL_Window *window = nullptr;
-    SDL_Renderer *renderer = nullptr;
-    SDL_Texture *screenTexture = nullptr;
+    SDL_Window *window = NULL;
+    SDL_Renderer *renderer = NULL;
+    SDL_Texture *screenTexture = NULL;
     numTexture numbersTexture;
     SDL_Event event;
-    TTF_Font *fontScore = nullptr;
-    TTF_Font *fontContinue = nullptr;
+    TTF_Font *fontScore = NULL;
+    TTF_Font *fontContinue = NULL;
     
     initSDL(window, renderer, fontScore, fontContinue, numbersTexture);
     

@@ -23,12 +23,12 @@ void initSDL(SDL_Window* &window, SDL_Renderer* &renderer, TTF_Font* &fontScore,
     SDL_SetHint( SDL_HINT_RENDER_SCALE_QUALITY, "1");
     
     window = SDL_CreateWindow(WINDOW_TITLE.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
-    if (window == nullptr) {
+    if (window == NULL) {
         logSDLError(cout, "CreateWindow", true);
     }
     
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-    if (renderer == nullptr) {
+    if (renderer == NULL) {
         logSDLError(cout, "CreateRenderer", true);
     }
     
@@ -54,7 +54,7 @@ void initSDL(SDL_Window* &window, SDL_Renderer* &renderer, TTF_Font* &fontScore,
 
     if( !loadMedia(numbersTexture, renderer))
     {
-        printf( "Failed to load media!\n" );
+        cout << "Failed to load media!" << endl;
     }
 }
 
@@ -70,14 +70,14 @@ void quitSDL(SDL_Window* &window, SDL_Renderer* &renderer, SDL_Texture* &screenT
 
 SDL_Texture* loadTexture(string filePath, SDL_Renderer* &renderer)
 {
-    SDL_Texture* texture = nullptr;
+    SDL_Texture* texture = NULL;
     SDL_Surface* surface = IMG_Load(filePath.c_str());
-    if (surface == nullptr)
+    if (surface == NULL)
         cout << "Error: " << SDL_GetError() << endl;
     else
     {
         texture = SDL_CreateTextureFromSurface(renderer, surface);
-        if (texture == nullptr)
+        if (texture == NULL)
             cout << "Error: " << SDL_GetError() << endl;
     }
     SDL_FreeSurface(surface);

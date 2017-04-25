@@ -11,9 +11,9 @@
 
 #include <iostream>
 #include <sstream>
-#include "SDL2/SDL.h"
-#include "SDL2_image/SDL_image.h"
-#include "SDL2_ttf/SDL_ttf.h"
+#include "SDL.h"
+#include "SDL_image.h"
+#include "SDL_ttf.h"
 #include "object.hpp"
 using namespace std;
 
