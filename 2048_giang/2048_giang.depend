@@ -1,0 +1,41 @@
+# depslib dependency file v1.0
+1493085844 source:c:\users\administrator\desktop\2048_giang\display.cpp
+	"display.hpp"
+
+1493085844 c:\users\administrator\desktop\2048_giang\display.hpp
+	<iostream>
+	<sstream>
+	"SDL.h"
+	"SDL_image.h"
+	"SDL_ttf.h"
+	"object.hpp"
+
+1493085844 c:\users\administrator\desktop\2048_giang\object.hpp
+	<iostream>
+
+1493085844 source:c:\users\administrator\desktop\2048_giang\init.cpp
+	"init.hpp"
+
+1493085844 c:\users\administrator\desktop\2048_giang\init.hpp
+	<iostream>
+	"SDL.h"
+	"SDL_image.h"
+	"SDL_ttf.h"
+	"object.hpp"
+
+1493085844 source:c:\users\administrator\desktop\2048_giang\logic.cpp
+	"logic.hpp"
+	<cstdlib>
+
+1493085844 c:\users\administrator\desktop\2048_giang\logic.hpp
+
+1493266207 source:c:\users\administrator\desktop\2048_giang\main.cpp
+	<iostream>
+	<cstdlib>
+	"SDL.h"
+
+1493085844 c:\users\administrator\desktop\2048_giang\updatearray.hpp
+
+1493085844 source:c:\users\administrator\desktop\2048_giang\updatearray.cpp
+	"updateArray.hpp"
+
